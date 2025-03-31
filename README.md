@@ -7,7 +7,12 @@ A personal time-tracking web application for freelance work that addresses the l
 - **Backend**: Express, Node.js (server)
 - **Database**: MySQL
 
-## Run client app
+## Development
+### Run client app
 - `cd client`
 - `npm install`
 - `npm run dev`
+
+### Run server app
+- `cd server`
+- `npm run dev` (Starts nodemon server for local development)
