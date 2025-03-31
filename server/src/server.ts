@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors'
 
 //initialise the app with express
@@ -10,12 +10,15 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 //set up api home route
-app.get("/api", (req, res) => {
+app.get("/api", (req: Request, res: Response) => {
   // TODO remove testing
-  res.json({"fruits" : ["apple", "orange", "banana"]})
+  res.send('Welcome to your TS express app!')
 })
+
+// Set the network port
+const port = process.env.PORT || 8080;
 
 //listen for server connections
 app.listen(8080, () =>{
-  console.log("server started on port 8080")
+  console.log(`The server is running at http://localhost:${port}`)
 })
