@@ -16,3 +16,4 @@ A personal time-tracking web application for freelance work that addresses the l
 ### Run server app
 - `cd server`
 - `npm run dev` (Starts nodemon server for local development)
+- url: *localhost:8080/api*
