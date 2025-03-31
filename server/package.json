@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "My time app",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start" : "node server",
     "dev" : "nodemon server",
