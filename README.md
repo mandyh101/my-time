@@ -3,6 +3,11 @@ A personal time-tracking web application for freelance work that addresses the l
 
 ## Tech Stack
 
-- **Frontend**: React, Vite, SASS/CSS
-- **Backend**: Express, Node.js
+- **Frontend**: React, Vite, SASS/CSS (client)
+- **Backend**: Express, Node.js (server)
 - **Database**: MySQL
+
+## Run client app
+- `cd client`
+- `npm install`
+- `npm run dev`
