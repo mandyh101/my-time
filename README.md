@@ -9,28 +9,21 @@ A personal time-tracking web application for freelance work that addresses the l
 
 ## Development
 *commented out while testing*
-<!-- ### Running docker
-- Build and start all containers
-`docker compose up --build`
+<!-- <!-- ### Running docker -->
+- Build and start all containers (first time build)
+`docker compose -f docker-compose.yml up --build`
+
+- If you've already built the Docker container:
+`docker compose up`
 
 - To run in detached mode (background)
 `docker compose up -d --build`
 
 - To stop all containers
-`docker compose down` -->
+`docker compose down` 
 
-### Running prisma migrations through Docker **(to test)**
-- currently tetsing prisma and docker set up (https://www.prisma.io/docs/guides/docker)
-- `docker compose -f docker-compose.mysql.yml up`
-- `cd server`
-- `npm run dev`
-- `npx prisma migrate dev --name init`
-- *next steps* after testing locally is to conatinerise...https://arc.net/l/quote/ioqyibqe
-<!-- - Connect to the backend container
-`docker exec -it mytime-server sh`
+<!-- TODO add client to docker  -->
 
-### Inside the container, run migrations
-`npx prisma migrate dev --name init` -->
 
 ### Run client app
 - `cd client`

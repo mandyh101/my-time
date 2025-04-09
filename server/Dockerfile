@@ -1,3 +1,4 @@
+# Dockerfile for the server and prisma db migrations
 FROM node:lts-alpine3.20
 
 WORKDIR /usr/src/app
