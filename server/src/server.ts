@@ -25,9 +25,9 @@ app.get("/api", async (req: Request, res: Response) => {
 })
 
 // Set the network port
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 
 //listen for server connections
-app.listen(8080, () =>{
+app.listen(port, () =>{
   console.log(`The server is running at http://localhost:${port}`)
 })

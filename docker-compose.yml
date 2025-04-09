@@ -1,0 +1,47 @@
+services:
+  mysql_db:
+    image: mysql:8.0
+    hostname: mysql_db
+    container_name: mysql_db
+    restart: always
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      # - MYSQL_USER=${MYSQL_USER}
+      # - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    networks:
+      - prisma-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 2s
+      retries: 20
+    # volumes:
+    #   - mysql_data:/var/lib/mysql
+    # logging:
+    #   options:
+    #     max-size: "10m"
+    #     max-file: "3"
+  server:
+    build: 
+      context: server  
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    stdin_open: true
+    tty: true  # Keeps the container running for debugging
+    depends_on:
+      mysql_db:
+        condition: service_healthy
+    env_file:
+      - .env
+    networks:
+      - prisma-network
+networks:
+  prisma-network:
+    name: prisma-network
+
+# volumes:
+#   mysql_data:
