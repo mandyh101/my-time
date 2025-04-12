@@ -28,8 +28,11 @@ services:
     build: 
       context: server  
       dockerfile: Dockerfile
+    container_name: server
     ports:
       - '8000:8000'
+    volumes:
+     - ./server:/app
     stdin_open: true
     tty: true  # Keeps the container running for debugging
     depends_on:
@@ -39,9 +42,24 @@ services:
       - .env
     networks:
       - prisma-network
-networks:
-  prisma-network:
-    name: prisma-network
 
-# volumes:
-#   mysql_data:
+  client:
+    build:
+      context: client
+      dockerfile: Dockerfile
+    container_name: client
+    restart: always
+    ports:
+      - "5173:5173"
+    environment:
+      NODE_ENV: ${NODE_ENV}
+    networks:
+      - prisma-network
+    stdin_open: true
+    tty: true
+     # Add this line to explicitly run vite:
+    command: npm run dev -- --host 0.0.0.0
+
+networks:
+    prisma-network:
+      name: prisma-network

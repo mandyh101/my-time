@@ -5,7 +5,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0',
-    port: 5173,
+    host: true, // Allows external access to the container
+    port: 5173, // Default Vite port (can be changed)
+    watch: {
+      usePolling: true, // Enables polling for file changes
+    },
   },
 })
