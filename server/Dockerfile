@@ -8,7 +8,7 @@ RUN apk add --no-cache netcat-openbsd
 
 COPY package.json package-lock.json ./
 
-RUN npm ci
+RUN npm ci && npm install -g nodemon
 
 COPY . .
 
