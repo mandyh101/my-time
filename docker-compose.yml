@@ -33,6 +33,7 @@ services:
       - '8000:8000'
     volumes:
      - ./server:/app
+     - /app/node_modules
     stdin_open: true
     tty: true  # Keeps the container running for debugging
     depends_on:
@@ -40,6 +41,7 @@ services:
         condition: service_healthy
     env_file:
       - .env
+      - server/.env
     networks:
       - prisma-network
 
@@ -51,13 +53,18 @@ services:
     restart: always
     ports:
       - "5173:5173"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
     environment:
       NODE_ENV: ${NODE_ENV}
+      VITE_API_URL: http://localhost:8000
     networks:
       - prisma-network
     stdin_open: true
     tty: true
-     # Add this line to explicitly run vite:
+    depends_on:
+      - server
     command: npm run dev -- --host 0.0.0.0
 
 networks:

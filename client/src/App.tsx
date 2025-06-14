@@ -8,7 +8,8 @@ function App() {
   const [count, setCount] = useState(0)
 
   const fetchAPI = async () => {
-    const response = await axios.get('http://localhost:8080/api')
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+    const response = await axios.get(`${apiUrl}/api`)
     console.log(response.data)
   }
 

@@ -20,14 +20,18 @@ app.get("/api", async (req: Request, res: Response) => {
   res.json(
     userCount == 0
       ? "No users have been added yet."
-      : "Sonme users have been added to the database."
+      : "Some users have been added to the database."
   );
 })
 
 // Set the network port
-const port = process.env.PORT || 8000;
+const port = Number(process.env.PORT) || 8000;
 
-//listen for server connections
 app.listen(port, () =>{
   console.log(`The server is running at http://localhost:${port}`)
 })
+//! commented out the below solution for binding to all interfaces - not just localhost as I don't think this is required but keeping commented out incase I have issues in the future.
+// app.listen(port, '0.0.0.0', () =>{
+//   console.log(`The server is running at http://0.0.0.0:${port}`)
+//   console.log(`Accessible from host at http://localhost:${port}`)
+// })
