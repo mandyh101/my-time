@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node dist/server.js",
-    "dev": "tsx src/server.ts --env-file=.env --watch",
+    "dev": "nodemon",
     "prestart": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:deploy": "npx prisma migrate deploy && npx prisma generate"
@@ -26,7 +26,10 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/node": "^22.14.0",
+    "jest": "^30.0.0",
+    "nodemon": "^3.1.10",
     "prisma": "^6.5.0",
+    "supertest": "^7.1.1",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   }
