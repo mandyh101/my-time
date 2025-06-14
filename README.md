@@ -1,15 +1,14 @@
 # My Time
-A personal time-tracking web application for freelance work that addresses the limitations of the Toggl free tier so I can track my time my way!
+A personal time-tracking web application that addresses the limitations of the Toggl free tier so I can track my time my way!
 
 ## Tech Stack
 
-- **Frontend**: React, Vite, SASS/CSS (client)
-- **Backend**: Express, Node.js (server)
+- **Frontend**: React/TS, Vite, SASS/CSS (client)
+- **Backend**: Express, Node.js (server), Prisma as the ORM/database toolkit
 - **Database**: MySQL
+- **Infrastructure**: Docker to containerise the frontend and backend service, TS config across the stack.
 
-## Development
-*commented out while testing*
-<!-- <!-- ### Running docker -->
+## Local development can be run through docker
 - Build and start all containers (first time build)
 `docker compose -f docker-compose.yml up --build`
 
@@ -22,9 +21,7 @@ A personal time-tracking web application for freelance work that addresses the l
 - To stop all containers
 `docker compose down` 
 
-<!-- TODO add client to docker  -->
-
-
+## Outside of docker - not recommended!
 ### Run client app
 - `cd client`
 - `npm install`
@@ -33,4 +30,4 @@ A personal time-tracking web application for freelance work that addresses the l
 ### Run server app
 - `cd server`
 - `npm run dev` (Starts nodemon server for local development)
-- url: *localhost:8080/api*
+- url: *localhost:8000/api*
